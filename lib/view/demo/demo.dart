@@ -2,7 +2,13 @@
 
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
+import 'package:provider/provider.dart';
 import 'dart:io';
+
+import 'package:video_player/video_player.dart';
+
+import '../../provider/home_provider.dart';
 
 
 class Call_screen extends StatefulWidget {
@@ -13,50 +19,79 @@ class Call_screen extends StatefulWidget {
 }
 
 class _Call_screenState extends State<Call_screen> {
-  File? _capturedImage;
+  Home_Provider? home_providerf;
+  Home_Provider? home_providert;
+
+  // VideoPlayerController? videoPlayerController;
+  late VideoPlayerController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset("assets/video/pexels-roman-odintsov-8195720.mp4")
+      ..initialize().then((value) {
+        setState(() {
+          _controller.setLooping(true);
+          _controller.play();
+        });
+      });
+  }
   @override
   Widget build(BuildContext context) {
+    home_providerf = Provider.of<Home_Provider>(context,listen: false);
+    home_providert = Provider.of<Home_Provider>(context,listen: true);
     return Scaffold(
-      body: Builder(builder: (context) {
-        if (_capturedImage != null) {
-          return Center(
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Image.file(_capturedImage!,),
-
-              ],
-            ),
-          );
-        }
-        return Stack(
+      body:  Stack(
           alignment: Alignment.bottomRight,
           children: [
-            Center(
-              child: Container(
-                color: Colors.pink,
-                height: double.infinity,
-                width: double.infinity,
-              ),
-            ),
-            ClipRRect(borderRadius: BorderRadius.circular(10),
-              child: Container(
-
-                height: MediaQuery.of(context).size.height*0.28,
-                width: MediaQuery.of(context).size.width*0.32,
-                child: SmartFaceCamera(
-                  //  autoCapture: true,
-                  defaultCameraLens: CameraLens.front,
-                  onCapture: (File? image) {
-                    _capturedImage = image;
-                  },
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height*1,
+                  width: MediaQuery.of(context).size.width*0.99,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: _controller.value.isInitialized
+                          ?
+                      AspectRatio(
+                          aspectRatio: _controller.value.aspectRatio,
+                          child: VideoPlayer(_controller))
+                          :
+                      Center(child: const CircularProgressIndicator(color: Colors.green,))
+                  ),
                 ),
-              ),
+              ],
             ),
+            Column(
+              children: [
+                LikeButton(
+                  size: 30,
+                  circleColor: CircleColor(
+                      start: Colors.pinkAccent,
+                      end: Colors.redAccent),
+                  bubblesColor: BubblesColor(
+                    dotPrimaryColor: Color(0xff33b5e5),
+                    dotSecondaryColor: Color(0xff0099cc),
+                  ),
+                  likeBuilder: (bool isLiked) {
+                    //isLiked ? apiproviderF!.cart.add(apimodel.articles![index]):"";
+
+                    return Icon(
+                      isLiked
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: isLiked
+                          ? Colors.red
+                          : Colors.white54,
+                      size: 30,
+                    );
+                  },
+                  likeCount: 605,
+                ),
+              ],
+            )
           ],
-        );
-      }
-      ),
+        ),
     );
   }
 }
