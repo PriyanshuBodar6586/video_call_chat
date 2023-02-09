@@ -6,10 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../../Question/done/done.dart';
 import '../../provider/home_provider.dart';
+import '../Question/done/done.dart';
 import '../home/video_screen.dart';
 import '../match/match_screen.dart';
+import '../profile/profile.dart';
 import '../rvider/rvideo.dart';
 
 class Bottombar extends StatefulWidget {
@@ -20,7 +21,8 @@ class Bottombar extends StatefulWidget {
 }
 
 class _BottombarState extends State<Bottombar> {
-  List WidgetsList=[Match_screen(),Video_Screen(),Done(),Done(),];
+  List WidgetsList=[Match_screen(),Video_Screen(),Done(),uprofi
+    le(),];
   Home_Provider ? home_providert;
   Home_Provider ? home_providerf;
   @override

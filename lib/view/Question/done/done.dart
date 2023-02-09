@@ -23,7 +23,7 @@ class _DoneState extends State<Done> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: InkWell(onTap: (){
-                    Navigator.pushNamed(context,'done');
+                    Navigator.pushNamed(context,'intro01');
                   },
                     child: Container(
                       height: 50,
