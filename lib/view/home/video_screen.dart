@@ -120,11 +120,6 @@ class _Video_ScreenState extends State<Video_Screen> {
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
-                                            Container(
-                                              height: 3.h,
-                                              width: 3.h,
-                                              child: Image.asset("assets/image/KNjVEZNv_400x400-removebg-preview.png"),
-                                            ),
                                             SizedBox(width: 1.h,),
                                             Container(
                                               height: 3.5.h,
@@ -143,17 +138,7 @@ class _Video_ScreenState extends State<Video_Screen> {
 
                                   Padding(
                                     padding: EdgeInsets.all(3.sp),
-                                    child: Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Container(
-                                          height: 6.h,
-                                          width: 6.h,
-                                          child: ClipRRect(borderRadius: BorderRadius.circular(50),child: Image.asset("assets/image/Rectangle 3.png",fit: BoxFit.fill,)),
-                                        ),
-                                        Icon(Icons.call,color: Colors.white,size: 25,)
-                                      ],
-                                    ),
+                                    child: Icon(Icons.call,color: Colors.white,size: 25,),
                                   ),
                                 ],
                               ),
