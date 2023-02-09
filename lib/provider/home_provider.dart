@@ -1,9 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../model/video_model.dart';
 
 class Home_Provider extends ChangeNotifier{
-
+  final _random = new Random();
   bool isplay = false ;
   int con =0;
 
@@ -60,4 +62,33 @@ class Home_Provider extends ChangeNotifier{
 
 
 
+
+
+
+
+
+
+
+
+  List<Modeldata>i2 = [
+    Modeldata(video:"assets/video/video1.mp4",Image: "assets/image/3a08310162e457cf99f93cb930c560b2.jpg",Name:"hoy neha",),
+    Modeldata(video:"assets/video/video1.mp4",Image: "assets/image/3a08310162e457cf99f93cb930c560b2.jpg",Name:"hoy neha",),
+    Modeldata(video:"assets/video/video1.mp4",Image: "assets/image/3a08310162e457cf99f93cb930c560b2.jpg",Name:"hoy neha",),
+    Modeldata(video:"assets/video/video1.mp4",Image: "assets/image/3a08310162e457cf99f93cb930c560b2.jpg",Name:"hoy neha",),
+    Modeldata(video:"assets/video/video1.mp4",Image: "assets/image/3a08310162e457cf99f93cb930c560b2.jpg",Name:"hoy neha",),
+
+  ];
+
+
+  List data3 = [];
+  Modeldata?Datapikkk;
+
+  void updateDataInList() {
+    data3 = new List.generate(10, (_) => i2[_random.nextInt(i2.length)]);
+  }
+
+  void showAllData(){
+    data3 = i2;
+  }
 }
+
