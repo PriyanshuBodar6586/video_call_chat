@@ -2,25 +2,24 @@ import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:video_call_chat/Question/male_female/femaleage/feqage.dart';
-import 'package:video_call_chat/Question/starting%20screen/start%20screen.dart';
-import 'package:video_call_chat/view/demo/demo.dart';
-import 'package:video_call_chat/view/home/video_screen.dart';
-import 'Question/done/done.dart';
-import 'Question/hot_fet/hot_fat.dart';
-import 'Question/loc_glob/loc_glo.dart';
-import 'Question/male_female/first.dart';
-import 'Question/male_female/maleage/mqage.dart';
-import 'intro/intro_screen.dart';
-import 'intro/intro_screen2.dart';
-import 'intro/intro_screnn3.dart';
+import 'package:video_call_chat/view/intro/intro_screen.dart';
 import 'provider/home_provider.dart';
+import 'view/Question/done/done.dart';
+import 'view/Question/hot_fet/hot_fat.dart';
+import 'view/Question/loc_glob/loc_glo.dart';
+import 'view/Question/male_female/femaleage/feqage.dart';
+import 'view/Question/male_female/first.dart';
+import 'view/Question/male_female/maleage/mqage.dart';
+import 'view/Question/starting screen/start screen.dart';
 import 'view/bottembar/bottem_bar.dart';
+import 'view/demo/demo.dart';
 import 'view/home/home_screen.dart';
 import 'view/home/video_play_screen.dart';
-
-
+import 'view/home/video_screen.dart';
+import 'view/intro/intro_screen2.dart';
+import 'view/intro/intro_screnn3.dart';
 import 'view/lottie_screen/lottie_screeen.dart';
+import 'view/profile/profile.dart';
 import 'view/rvider/rvideo.dart';
 import 'view/splash screen/splash_screen.dart';
 
@@ -60,6 +59,7 @@ void main()async{
               'lotti': (contest) => Lottie_Screen(),
               'loc-global': (contest) => Lock_Global(),
               'done': (contest) => Done(),
+              'userpro': (contest) => uprofile(),
             },
           );
         },
