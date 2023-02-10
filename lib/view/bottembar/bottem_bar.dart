@@ -22,7 +22,11 @@ class Bottombar extends StatefulWidget {
 }
 
 class _BottombarState extends State<Bottombar> {
+
   List WidgetsList=[Match_screen(),Video_Screen(),Done(),Done(),uprofile(),];
+=======
+  List WidgetsList=[Match_screen(),Video_Screen(),Done(),uprofile(),];
+
   Home_Provider ? home_providert;
   Home_Provider ? home_providerf;
   @override

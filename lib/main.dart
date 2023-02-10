@@ -39,8 +39,10 @@ void main()async{
             ),
             debugShowCheckedModeBanner: false,
             //initialRoute: 'bottom',
-            routes: {
 
+            initialRoute: 'd',
+
+            routes: {
               '/':(contest)=>splash_screen(),
               '/start':(contest)=>Start_screen(),
               'intro01':(contest)=>intro1(),
