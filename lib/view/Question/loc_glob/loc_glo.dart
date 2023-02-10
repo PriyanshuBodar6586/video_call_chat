@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:sizer/sizer.dart';
 
 
 class Lock_Global extends StatefulWidget {
@@ -16,9 +18,10 @@ class _Lock_GlobalState extends State<Lock_Global> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Image.asset("assets/image/back.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
-            Column(mainAxisAlignment: MainAxisAlignment.end,
+            Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Column(
               children: [
+                Lottie.asset("assets/video/45756-earth-globe-looped-icon.json"),
                 Align(
                   alignment: Alignment.bottomCenter,
 
@@ -30,14 +33,23 @@ class _Lock_GlobalState extends State<Lock_Global> {
                         },
 
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("Local",style: TextStyle(color: Colors.white,fontSize: 27,),),
+                          child: Center(
+                            child: Text("Local",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),
@@ -49,14 +61,23 @@ class _Lock_GlobalState extends State<Lock_Global> {
                         Navigator.pushNamed(context,'hotfat');
                       },
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("Globel",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                          child: Center(
+                            child: Text("Global",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),

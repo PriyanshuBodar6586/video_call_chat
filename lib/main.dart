@@ -38,7 +38,7 @@ void main()async{
               accentColor: Colors.black,
             ),
             debugShowCheckedModeBanner: false,
-            //initialRoute: 'd',
+            //initialRoute: 'bottom',
             routes: {
 
               '/':(contest)=>splash_screen(),

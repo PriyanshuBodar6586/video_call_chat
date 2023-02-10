@@ -32,6 +32,7 @@ class _Call_screenState extends State<Call_screen> {
         return Stack(
           alignment: Alignment.bottomRight,
           children: [
+
             Center(
               child: Container(
                 color: Colors.pink,

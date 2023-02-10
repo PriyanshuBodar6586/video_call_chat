@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../intro/intro_screen.dart';
 
@@ -17,7 +18,7 @@ class _DoneState extends State<Done> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Image.asset("assets/image/back.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(
@@ -26,15 +27,23 @@ class _DoneState extends State<Done> {
                     Navigator.pushNamed(context,'intro01');
                   },
                     child: Container(
-                      height: 50,
-                      width: 150,
+                      height: 7.h,
+                      width: 45.w,
                       decoration: BoxDecoration(
-                        color: Colors.white30,
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xFFFFFFFF),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                              blurRadius: 20, color: Colors.deepPurpleAccent)
+                        ],
                       ),
-                      child: Center(child: Text("Done"
-                          "",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                      child: Center(
+                        child: Text("Global",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF4E08DC),
+                              fontSize: 25,
+                            )),
                       ),
                     ),
                   ),
