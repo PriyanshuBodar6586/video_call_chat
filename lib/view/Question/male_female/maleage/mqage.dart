@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 
 class Maqage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MaqageState extends State<Maqage> {
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Image.asset("assets/image/back.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(
@@ -28,14 +29,23 @@ class _MaqageState extends State<Maqage> {
                         Navigator.pushNamed(context,'done');
                       },
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("16  to  30",style: TextStyle(color: Colors.white,fontSize: 27,),),
+                          child: Center(
+                            child: Text("16  To  30",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),
@@ -46,14 +56,23 @@ class _MaqageState extends State<Maqage> {
                         Navigator.pushNamed(context,'done');
                       },
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("31  to  50",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                          child: Center(
+                            child: Text("31  to  50",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),
@@ -64,14 +83,23 @@ class _MaqageState extends State<Maqage> {
                         Navigator.pushNamed(context,'done');
                       },
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("51  to  75",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                          child: Center(
+                            child: Text("51  To  75",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),
@@ -82,14 +110,23 @@ class _MaqageState extends State<Maqage> {
                         Navigator.pushNamed(context,'done');
                       },
                         child: Container(
-                          height: 50,
-                          width: 150,
+                          height: 7.h,
+                          width: 50.w,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
+                            color: Color(0xFFFFFFFF),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 20, color: Colors.deepPurpleAccent)
+                            ],
                           ),
-                          child: Center(child: Text("75  to  up",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                          child: Center(
+                            child: Text("75  To  up",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF4E08DC),
+                                  fontSize: 25,
+                                )),
                           ),
                         ),
                       ),

@@ -43,6 +43,15 @@ class _Call_screenState extends State<Call_screen> {
       body:  Stack(
           alignment: Alignment.bottomRight,
           children: [
+
+
+            Center(
+              child: Container(
+                color: Colors.pink,
+                height: double.infinity,
+                width: double.infinity,
+              ),
+=======
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -61,6 +70,7 @@ class _Call_screenState extends State<Call_screen> {
                   ),
                 ),
               ],
+
             ),
             Column(
               children: [

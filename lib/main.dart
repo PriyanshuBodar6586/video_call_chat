@@ -38,7 +38,10 @@ void main()async{
               accentColor: Colors.black,
             ),
             debugShowCheckedModeBanner: false,
+            //initialRoute: 'bottom',
+
             initialRoute: 'd',
+
             routes: {
               '/':(contest)=>splash_screen(),
               '/start':(contest)=>Start_screen(),

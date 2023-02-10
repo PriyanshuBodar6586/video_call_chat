@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import 'femaleage/feqage.dart';
 import 'maleage/mqage.dart';
@@ -20,7 +21,7 @@ class _First_QuestionState extends State<First_Question> {
           alignment: Alignment.bottomCenter,
           children: [
             Image.asset(
-              "assets/image/back.png",
+              "assets/image/bacl0012.png",
               height: double.infinity,
               width: double.infinity,
               fit: BoxFit.fill,
@@ -36,18 +37,22 @@ class _First_QuestionState extends State<First_Question> {
                         Navigator.pushNamed(context,'mage');
                       },
                       child: Container(
-                        height: 50,
-                        width: 150,
+                        height: 7.h,
+                        width: 37.w,
                         decoration: BoxDecoration(
-                          color: Colors.white30,
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 20, color: Colors.deepPurpleAccent)
+                          ],
                         ),
                         child: Center(
                           child: Text("Male",
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 27,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF4E08DC),
+                                fontSize: 25,
                               )),
                         ),
                       ),
@@ -59,18 +64,22 @@ class _First_QuestionState extends State<First_Question> {
                       Navigator.pushNamed(context,'feage');
                     },
                       child: Container(
-                        height: 50,
-                        width: 150,
+                        height: 7.h,
+                        width: 37.w,
                         decoration: BoxDecoration(
-                          color: Colors.white30,
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(20),
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 20, color: Colors.deepPurpleAccent)
+                          ],
                         ),
                         child: Center(
                           child: Text("Female",
                               style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 27,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF4E08DC),
+                                fontSize: 25,
                               )),
                         ),
                       ),
