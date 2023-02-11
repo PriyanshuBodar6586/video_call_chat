@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -14,11 +16,21 @@ class Lottie_Screen extends StatefulWidget {
 
 
 class _Lottie_ScreenState extends State<Lottie_Screen> {
+  int? randomNumber;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Random random = new Random();
+    randomNumber = random.nextInt(Provider.of<Home_Provider>(context,listen: false).i2.length);
+  }
   @override
   Widget build(BuildContext context) {
   Future.delayed(Duration(seconds: 05), () {
-    return Navigator.pushNamed(context, "rvideo",arguments: Provider.of<Home_Provider>(context,listen: false).Datapickkk);
-
+    // return Navigator.pushNamed(context, "rvideo",arguments: Provider.of<Home_Provider>(context,listen: false).i2[randomNumber!].video);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return Rvideo(Provider.of<Home_Provider>(context,listen: false).i2[randomNumber!].video!);
+    },));
   });
     return WillPopScope(onWillPop: dialog,
       child: Scaffold(

@@ -13,7 +13,9 @@ import '../../provider/home_provider.dart';
 
 
 class Rvideo extends StatefulWidget {
-  const Rvideo({Key? key}) : super(key: key);
+  String video;
+  Rvideo( this.video);
+
 
   @override
   State<Rvideo> createState() => _RvideoState();
@@ -28,7 +30,8 @@ class _RvideoState extends State<Rvideo> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/video/video1.mp4")
+    // _controller = VideoPlayerController.asset("${Provider.of<Home_Provider>(context,listen: true).i2}")
+    _controller = VideoPlayerController.asset("${widget.video}")
       ..initialize().then((value) {
         setState(() {
           _controller.setLooping(true);
@@ -84,14 +87,16 @@ class _RvideoState extends State<Rvideo> {
                   children: [
 
                     ElevatedButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, 'bottom');
+                      dialog();
+
                     }, child: Text("close"),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
                     ElevatedButton(onPressed: (){
-                      Navigator.pushReplacementNamed(context, 'bottom');
+                      Navigator.pushReplacementNamed(context, 'lotti');
                     }, child: Text("Next"),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
                     ElevatedButton(onPressed: (){
-                      Navigator.pushNamed(context,'chat',arguments: home_providerf!.Datapickkk!.Name);
 
+                          chat();
+                          Navigator.pushReplacementNamed(context, 'chat',arguments:  home_providerf!.i2[0].Name);
 
                     },
                       child: Icon(Icons.sms),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
@@ -130,5 +135,10 @@ class _RvideoState extends State<Rvideo> {
 
   void back(){
     Navigator.pushReplacementNamed(context, 'bottom');
+  }
+  Future<bool> chat()async{
+    home_providerf!.playpause();
+    _controller.pause();
+    return await false;
   }
 }

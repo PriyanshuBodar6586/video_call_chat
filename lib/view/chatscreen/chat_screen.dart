@@ -47,14 +47,7 @@ class _Chat_ScreenState extends State<Chat_Screen> {
           ),
           title: Row(
             children: [
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(50),
-              //   child: Image.asset("${home_providerf!.Datapickkk!.Image}",
-              //     fit: BoxFit.fill,
-              //     width: MediaQuery.of(context).size.height*0.045,
-              //     height:  MediaQuery.of(context).size.height*0.045,
-              //   ),
-              // ),
+
               SizedBox(width: MediaQuery.of(context).size.width*0.02,),
               Text("${home_providerf!.Datapickkk!.Name}")
             ],

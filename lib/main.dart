@@ -27,40 +27,40 @@ import 'view/profile/profile.dart';
 import 'view/rvider/rvideo.dart';
 import 'view/splash screen/splash_screen.dart';
 
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Add this
   await FaceCamera.initialize();
   runApp(
     MultiProvider(
       providers: [
-        ListenableProvider(create: (contest)=>Home_Provider()),
+        ListenableProvider(create: (contest) => Home_Provider()),
       ],
       child: Sizer(
-        builder: (context, orientation, deviceType){
-          return   MaterialApp(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp(
             theme: ThemeData(
               accentColor: Colors.black,
             ),
             debugShowCheckedModeBanner: false,
             //initialRoute: 'bottom',
 
-           // initialRoute: 'rvideo',
+            // initialRoute: 'rvideo',
 
             routes: {
-              '/':(contest)=>splash_screen(),
-              '/start':(contest)=>Start_screen(),
-              'intro01':(contest)=>intro1(),
-             // 'd':(conest)=>Call_screen(),
-              'intro02':(contest)=>Intro2(),
-              'intro03':(contest)=>Intro3(),
-              'home':(contest)=>Home_Screen(),
-              'hotfat':(contest)=>Hot_Fat(),
-              'rvideo':(contest)=>Rvideo(),
-              'feage':(contest)=>Feqage(),
-              'mage':(contest)=>Maqage(),
-              'bottom':(contest)=>Bottombar(),
-              'video':(contest)=>Video_Screen(),
-              'play':(contest)=>Second_Screen(),
+              '/': (contest) => splash_screen(),
+              '/start': (contest) => Start_screen(),
+              'intro01': (contest) => intro1(),
+              // 'd':(conest)=>Call_screen(),
+              'intro02': (contest) => Intro2(),
+              'intro03': (contest) => Intro3(),
+              'home': (contest) => Home_Screen(),
+              'hotfat': (contest) => Hot_Fat(),
+              // 'rvideo':(contest)=>Rvideo(),
+              'feage': (contest) => Feqage(),
+              'mage': (contest) => Maqage(),
+              'bottom': (contest) => Bottombar(),
+              'video': (contest) => Video_Screen(),
+              'play': (contest) => Second_Screen(),
               'fq': (contest) => First_question(),
               'lotti': (contest) => Lottie_Screen(),
               'loc-global': (contest) => Lock_Global(),
@@ -69,7 +69,7 @@ void main()async{
               'nick': (contest) => Nickname_Screen(),
               'ubirth': (contest) => User_Birthday(),
               'chat': (contest) => Chat_Screen(),
-                  'like':(contest)=>Like_Screen(),
+              'like': (contest) => Like_Screen(),
             },
           );
         },
