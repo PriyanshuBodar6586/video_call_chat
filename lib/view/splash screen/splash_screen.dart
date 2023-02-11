@@ -17,14 +17,14 @@ class _splash_screenState extends State<splash_screen> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Lottie.asset("assets/video/127373-video-call.json",fit: BoxFit.fill),
+          child: Lottie.asset("assets/video/32489-libero-logo-animation.json",fit: BoxFit.fill),
         ),
       ),
     );
   }
 
   void isLogin() async {
-    Timer(Duration(seconds: 3), () =>
-        Navigator.pushReplacementNamed(context, '/start'));
+    Timer(Duration(seconds: 4), () =>
+        Navigator.pushReplacementNamed(context, 'intro01'));
   }
 }

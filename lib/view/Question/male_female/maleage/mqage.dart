@@ -20,6 +20,29 @@ class _MaqageState extends State<Maqage> {
             Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                 Container(
+                  height: 7.h,
+                  width: 75.w,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 20, color: Colors.deepPurpleAccent)
+                    ],
+                  ),
+                  child: Center(
+                    child: Text("Select Your Age Ratio",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4E08DC),
+                          fontSize: 25,
+                        )),
+                  ),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
                 Align(
                   alignment: Alignment.bottomCenter,
 
@@ -40,7 +63,7 @@ class _MaqageState extends State<Maqage> {
                             ],
                           ),
                           child: Center(
-                            child: Text("16  To  30",
+                            child: Text("18  To  20",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -67,7 +90,7 @@ class _MaqageState extends State<Maqage> {
                             ],
                           ),
                           child: Center(
-                            child: Text("31  to  50",
+                            child: Text("21  to  30",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -94,7 +117,7 @@ class _MaqageState extends State<Maqage> {
                             ],
                           ),
                           child: Center(
-                            child: Text("51  To  75",
+                            child: Text("31  To  50",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -121,7 +144,7 @@ class _MaqageState extends State<Maqage> {
                             ],
                           ),
                           child: Center(
-                            child: Text("75  To  up",
+                            child: Text("51  To  up",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),

@@ -54,7 +54,9 @@ class _Match_screenState extends State<Match_screen> {
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
                     onTap: () {
-                      home_providerf!.Datapickkk = Modeldata();
+                      home_providerf!.Datapickkk = Modeldata(
+
+                      );
                       Navigator.pushNamed(context, "lotti");
                     },
                     child: Container(

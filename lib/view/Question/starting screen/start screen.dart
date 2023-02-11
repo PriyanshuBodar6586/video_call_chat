@@ -12,7 +12,7 @@ class Start_screen extends StatefulWidget {
 class _Start_screenState extends State<Start_screen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return WillPopScope( onWillPop:dialog,
       child: Scaffold(
 
         body: Container(
@@ -25,7 +25,7 @@ class _Start_screenState extends State<Start_screen> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: InkWell(onTap: (){
-                      Navigator.pushNamed(context,'loc-global');
+                      Navigator.pushNamed(context,'nick');
                     },
                       child: Container(
                         height: 7.h,
@@ -58,5 +58,14 @@ class _Start_screenState extends State<Start_screen> {
         ),
       ),
     );
+  }
+  Future<bool> dialog() async {
+
+    back();
+    return await false;
+  }
+
+  void back(){
+    Navigator.pushReplacementNamed(context, 'bottom');
   }
 }

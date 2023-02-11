@@ -41,6 +41,11 @@ class Home_Provider extends ChangeNotifier{
     notifyListeners();
   }
 
+  List<Modeldata>cart = [];
+
+
+
+
 
 
 

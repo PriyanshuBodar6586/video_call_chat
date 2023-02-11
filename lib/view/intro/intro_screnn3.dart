@@ -22,7 +22,7 @@ class _Intro3State extends State<Intro3> {
                   alignment: Alignment.bottomRight,
                   child: InkWell(onTap: (){
 
-                    Navigator.pushNamed(context,'bottom');
+                    Navigator.pushNamed(context,'/start');
 
                   },
                     child: Padding(

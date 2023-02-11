@@ -20,21 +20,30 @@ class _Lottie_ScreenState extends State<Lottie_Screen> {
     return Navigator.pushNamed(context, "rvideo",arguments: Provider.of<Home_Provider>(context,listen: false).Datapickkk);
 
   });
-    return SafeArea(
-        child: Scaffold(
-          backgroundColor: Color(0xffffffff),
-          body: Center(
-            child: Container(
+    return WillPopScope(onWillPop: dialog,
+      child: Scaffold(
+        backgroundColor: Color(0xffffffff),
+        body: Center(
+          child: Container(
 
 
-              child:  Lottie.asset("assets/video/84691-whaiting.json"),
+            child:  Lottie.asset("assets/video/84691-whaiting.json"),
 
 
 
 
-            ),
           ),
         ),
+      ),
     );
+  }
+  Future<bool> dialog() async {
+
+    back();
+    return await false;
+  }
+
+  void back(){
+    Navigator.pushReplacementNamed(context, 'bottom');
   }
 }

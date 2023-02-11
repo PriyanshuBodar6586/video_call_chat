@@ -1,95 +1,140 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-import 'femaleage/feqage.dart';
-import 'maleage/mqage.dart';
+import '../../../provider/home_provider.dart';
 
-
-class First_Question extends StatefulWidget {
-  const First_Question({Key? key}) : super(key: key);
+class First_question extends StatefulWidget {
+  const First_question({Key? key}) : super(key: key);
 
   @override
-  State<First_Question> createState() => _First_QuestionState();
+  State<First_question> createState() => _First_questionState();
 }
 
-class _First_QuestionState extends State<First_Question> {
+class _First_questionState extends State<First_question> {
+
+
+  Home_Provider? home_providerT;
+  Home_Provider? home_providerF;
+
+  double ? height;
+  double ? width;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+    home_providerF = Provider.of<Home_Provider>(context,listen: false);
+    home_providerT = Provider.of<Home_Provider>(context,listen: true);
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
           children: [
-            Image.asset(
-              "assets/image/bacl0012.png",
-              height: double.infinity,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
+            Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    InkWell(
-                      onTap: (){
-                        Navigator.pushNamed(context,'mage');
-                      },
-                      child: Container(
-                        height: 7.h,
-                        width: 37.w,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFFFFFF),
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 20, color: Colors.deepPurpleAccent)
-                          ],
+                    IconButton(onPressed: (){
+                      Navigator.pushNamed(context,'home');
+                    }, icon: Icon(Icons.arrow_back,size: 35,color: Colors.white,)),
+                  ],
+                ),
+                SizedBox(height: height!*0.1,),
+                Text("What Is Your Gender",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 25),),
+                SizedBox(height: height!*0.09,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                         height: 27.h,
+                          width: 45.w,
+                          decoration: BoxDecoration(borderRadius:BorderRadius.circular(20),border:Border.all(width: 2,color: Colors.white,)),
+                          child: Lottie.asset("assets/video/90960-male-06.json",fit: BoxFit.fill),
                         ),
-                        child: Center(
-                          child: Text("Male",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF4E08DC),
-                                fontSize: 25,
-                              )),
-                        ),
-                      ),
+                        SizedBox(height: 20),
+
+
+                          InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context,'mage');
+                              },
+                              child: Container(
+                                height: 7.h,
+                                width: 37.w,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFFFFF),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 20, color: Colors.deepPurpleAccent)
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Text("Male",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF4E08DC),
+                                        fontSize: 25,
+                                      )),
+                                ),
+                              )
+                          )
+                      ],
                     ),
-                    SizedBox(
-                      height: 90,
-                    ),
-                    InkWell(onTap: (){
-                      Navigator.pushNamed(context,'feage');
-                    },
-                      child: Container(
-                        height: 7.h,
-                        width: 37.w,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFFFFFF),
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 20, color: Colors.deepPurpleAccent)
-                          ],
-                        ),
-                        child: Center(
-                          child: Text("Female",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF4E08DC),
-                                fontSize: 25,
-                              )),
-                        ),
-                      ),
+                    Column(
+                      children: [
+                        Container(
+                          height: 27.h,
+                          width: 45.w,
+                          decoration: BoxDecoration(borderRadius:BorderRadius.circular(20),border:Border.all(width: 2,color: Colors.white)),
+                          child: Lottie.asset("assets/video/42722-female-avatar.json"),),
+                          SizedBox(height:20,),
+
+                          InkWell(
+                              onTap: (){
+                                Navigator.pushNamed(context,'feage');
+                              },
+                              child: Container(
+                                height: 7.h,
+                                width: 37.w,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFFFFFFF),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 20, color: Colors.deepPurpleAccent)
+                                  ],
+                                ),
+                                child: Center(
+                                  child: Text("Female",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF4E08DC),
+                                        fontSize: 25,
+                                      )),
+                                ),
+                              )
+                          )
+
+
+
+                      ],
                     ),
                   ],
                 ),
+                SizedBox(height: height!*0.07,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
 
-                SizedBox(
-                  height: 60,
+                  ],
                 ),
+                SizedBox(height: height!*0.02,),
+                Text("Can't be changed after confirmation",style: TextStyle(color: Colors.white,),)
               ],
             ),
           ],

@@ -25,7 +25,33 @@ class _Hot_FatState extends State<Hot_Fat> {
                   alignment: Alignment.bottomCenter,
 
                   child: Column(
+
                     children: [
+                      Container(
+                        height: 7.h,
+                        width: 65.w,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 20, color: Colors.deepPurpleAccent)
+                          ],
+                        ),
+                        child: Center(
+                          child: Text("What Do You Like",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF4E08DC),
+                                fontSize: 25,
+                              ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.h,
+                      ),
+
                       InkWell(onTap:(){
                         Navigator.pushNamed(context,'fq');
                       },
@@ -41,7 +67,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                             ],
                           ),
                           child: Center(
-                            child: Text("Hot",
+                            child: Text("Hot  Giral",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -68,7 +94,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                             ],
                           ),
                           child: Center(
-                            child: Text("Cute",
+                            child: Text("Cute  Giral",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -95,7 +121,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                             ],
                           ),
                           child: Center(
-                            child: Text("Fat",
+                            child: Text("Fat  Giral",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
@@ -123,7 +149,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                             ],
                           ),
                           child: Center(
-                            child: Text("Fat",
+                            child: Text("slim  Giral",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),

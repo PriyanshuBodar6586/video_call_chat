@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:like_button/like_button.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -138,7 +139,29 @@ class _Video_ScreenState extends State<Video_Screen> {
 
                                   Padding(
                                     padding: EdgeInsets.all(3.sp),
-                                    child: Icon(Icons.call,color: Colors.white,size: 25,),
+                                    child: LikeButton(
+                                      size: 30,
+                                      circleColor: CircleColor(
+                                          start: Colors.pinkAccent,
+                                          end: Colors.redAccent),
+                                      bubblesColor: BubblesColor(
+                                        dotPrimaryColor: Color(0xff33b5e5),
+                                        dotSecondaryColor: Color(0xff0099cc),
+                                      ),
+                                      likeBuilder: (bool isLiked) {
+                                        isLiked? home_providerf!.cart.add(home_providerf!.Datapickkk!):"";
+                                      //  isLiked ? apiproviderF!.cart.add(apimodel.articles![index]):"";
+                                        return Icon(
+                                          isLiked
+                                              ? Icons.favorite
+                                              : Icons.favorite_border,
+                                          color: isLiked
+                                              ? Colors.red
+                                              : Colors.white54,
+                                          size: 30,
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ],
                               ),

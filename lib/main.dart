@@ -2,16 +2,20 @@ import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:video_call_chat/view/home/like_Screen.dart';
 import 'package:video_call_chat/view/intro/intro_screen.dart';
 import 'provider/home_provider.dart';
+import 'view/Question/birthday/birthday_screen.dart';
 import 'view/Question/done/done.dart';
 import 'view/Question/hot_fet/hot_fat.dart';
 import 'view/Question/loc_glob/loc_glo.dart';
 import 'view/Question/male_female/femaleage/feqage.dart';
 import 'view/Question/male_female/first.dart';
 import 'view/Question/male_female/maleage/mqage.dart';
+import 'view/Question/nic_name/nick_name.dart';
 import 'view/Question/starting screen/start screen.dart';
 import 'view/bottembar/bottem_bar.dart';
+import 'view/chatscreen/chat_screen.dart';
 import 'view/demo/demo.dart';
 import 'view/home/home_screen.dart';
 import 'view/home/video_play_screen.dart';
@@ -40,13 +44,13 @@ void main()async{
             debugShowCheckedModeBanner: false,
             //initialRoute: 'bottom',
 
-            initialRoute: 'd',
+           // initialRoute: 'rvideo',
 
             routes: {
               '/':(contest)=>splash_screen(),
               '/start':(contest)=>Start_screen(),
               'intro01':(contest)=>intro1(),
-              'd':(conest)=>Call_screen(),
+             // 'd':(conest)=>Call_screen(),
               'intro02':(contest)=>Intro2(),
               'intro03':(contest)=>Intro3(),
               'home':(contest)=>Home_Screen(),
@@ -57,11 +61,15 @@ void main()async{
               'bottom':(contest)=>Bottombar(),
               'video':(contest)=>Video_Screen(),
               'play':(contest)=>Second_Screen(),
-              'fq': (contest) => First_Question(),
+              'fq': (contest) => First_question(),
               'lotti': (contest) => Lottie_Screen(),
               'loc-global': (contest) => Lock_Global(),
               'done': (contest) => Done(),
               'userpro': (contest) => uprofile(),
+              'nick': (contest) => Nickname_Screen(),
+              'ubirth': (contest) => User_Birthday(),
+              'chat': (contest) => Chat_Screen(),
+                  'like':(contest)=>Like_Screen(),
             },
           );
         },

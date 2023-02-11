@@ -26,6 +26,29 @@ class _FeqageState extends State<Feqage> {
 
                   child:Column(
                     children: [
+                      Container(
+                        height: 7.h,
+                        width: 75.w,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 20, color: Colors.deepPurpleAccent)
+                          ],
+                        ),
+                        child: Center(
+                          child: Text("Select Your Age Ratio",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF4E08DC),
+                                fontSize: 25,
+                              )),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.h,
+                      ),
                       InkWell(onTap: (){
                         Navigator.pushNamed(context,'done');
                       },

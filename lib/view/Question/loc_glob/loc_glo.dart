@@ -20,6 +20,7 @@ class _Lock_GlobalState extends State<Lock_Global> {
           children: [
             Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Lottie.asset("assets/video/45756-earth-globe-looped-icon.json"),
                 Align(

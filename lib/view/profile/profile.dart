@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-=======
+
  import 'package:flutter/material.dart';
 
 
@@ -150,19 +150,24 @@ class _uprofileState extends State<uprofile> {
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        height: 8.h,
-                        width: 75.w,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 30, color: Colors.grey)
-                          ],
-                        ),
-                        child: Center(child: Text("Log Out",style: TextStyle(fontSize: 2.5.h,fontWeight: FontWeight.w600),),),
+                      InkWell(
+                        onTap: (){
+                          Navigator.pushReplacementNamed(context, 'intro01');
+                        },
+                        child: Container(
+                          height: 8.h,
+                          width: 75.w,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 30, color: Colors.grey)
+                            ],
+                          ),
+                          child: Center(child: Text("Log Out",style: TextStyle(fontSize: 2.5.h,fontWeight: FontWeight.w600),),),
 
+                        ),
                       ),
                     ],
                   ),
