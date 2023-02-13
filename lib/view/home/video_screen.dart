@@ -21,11 +21,15 @@ class _Video_ScreenState extends State<Video_Screen> {
   Widget build(BuildContext context) {
     home_providerf = Provider.of<Home_Provider>(context, listen: false);
     home_providert = Provider.of<Home_Provider>(context, listen: true);
-    return SafeArea(
+    return WillPopScope( onWillPop: ()async{
+      return false;
+    },
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
+          centerTitle: true,
           backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
           title: Text(
             "Popular",
             style: TextStyle(
@@ -173,10 +177,6 @@ class _Video_ScreenState extends State<Video_Screen> {
                                         dotSecondaryColor: Color(0xff0099cc),
                                       ),
                                       likeBuilder: (bool isLiked) {
-                                        // isLiked
-                                            // ? home_providerf!.cart.add(
-                                            //     home_providerf!.Datapickkk!)
-                                            // : "";
 
                                         return Icon(
                                           isLiked

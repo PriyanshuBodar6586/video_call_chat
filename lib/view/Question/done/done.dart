@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../model/share_screen.dart';
 import '../../intro/intro_screen.dart';
 
 class Done extends StatefulWidget {
@@ -12,8 +13,16 @@ class Done extends StatefulWidget {
 
 class _DoneState extends State<Done> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setIntro();
+  }
+  @override
   Widget build(BuildContext context) {
-    return WillPopScope(onWillPop:dialog,
+
+    return WillPopScope(
+      onWillPop:dialog,
       child: Scaffold(
         body: Container(
           child: Stack(

@@ -19,8 +19,9 @@ class _Chat_ScreenState extends State<Chat_Screen> {
   );
 
   List<ChatMessage> messages = <ChatMessage>[
+
     ChatMessage(
-      text: 'Hey!',
+      text: 'Hey!   ',
       user: ChatUser(id: 'userr'),
       createdAt: DateTime.now(),
     ),
@@ -47,9 +48,8 @@ class _Chat_ScreenState extends State<Chat_Screen> {
           ),
           title: Row(
             children: [
-
-              SizedBox(width: MediaQuery.of(context).size.width*0.02,),
-              Text("${home_providerf!.Datapickkk!.Name}")
+              //SizedBox(width: MediaQuery.of(context).size.width*0.02,),
+              Text("Riya"),
             ],
           ),
         ),

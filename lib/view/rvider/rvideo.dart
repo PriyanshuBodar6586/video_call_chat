@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
@@ -93,7 +92,7 @@ class _RvideoState extends State<Rvideo> {
                       Navigator.pushReplacementNamed(context, 'lotti');
                     }, child: Text("Next"),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
                     ElevatedButton(onPressed: (){
-
+                          dialog();
                           chat();
                           Navigator.pushReplacementNamed(context, 'chat',arguments:  home_providerf!.Datapickkk!.Name);
 
@@ -132,8 +131,15 @@ class _RvideoState extends State<Rvideo> {
     return await false;
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  dialog();
+  }
+
   void back(){
-    Navigator.pushReplacementNamed(context, 'bottom');
+    Navigator.pushReplacementNamed(context, 'done');
   }
   Future<bool> chat()async{
     home_providerf!.playpause();

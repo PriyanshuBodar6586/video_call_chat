@@ -16,7 +16,6 @@ import 'view/Question/nic_name/nick_name.dart';
 import 'view/Question/starting screen/start screen.dart';
 import 'view/bottembar/bottem_bar.dart';
 import 'view/chatscreen/chat_screen.dart';
-import 'view/demo/demo.dart';
 import 'view/home/home_screen.dart';
 import 'view/home/video_play_screen.dart';
 import 'view/home/video_screen.dart';
@@ -24,7 +23,6 @@ import 'view/intro/intro_screen2.dart';
 import 'view/intro/intro_screnn3.dart';
 import 'view/lottie_screen/lottie_screeen.dart';
 import 'view/profile/profile.dart';
-import 'view/rvider/rvideo.dart';
 import 'view/splash screen/splash_screen.dart';
 
 void main() async {
@@ -44,7 +42,7 @@ void main() async {
             debugShowCheckedModeBanner: false,
             //initialRoute: 'bottom',
 
-            // initialRoute: 'rvideo',
+           //  initialRoute: 'bottom',
 
             routes: {
               '/': (contest) => splash_screen(),

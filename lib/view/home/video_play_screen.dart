@@ -26,7 +26,7 @@ class _Second_ScreenState extends State<Second_Screen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/video/video1.mp4")
+    _controller = VideoPlayerController.asset("${Provider.of<Home_Provider>(context,listen: false).Datapickkk!.video}")
       ..initialize().then((value) {
         setState(() {
           _controller.setLooping(true);

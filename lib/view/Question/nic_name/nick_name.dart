@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../model/share_screen.dart';
 
 class Nickname_Screen extends StatefulWidget {
   const Nickname_Screen({Key? key}) : super(key: key);
@@ -69,6 +70,8 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                             onTap: (){
 
                               if(txtkey.currentState!.validate() == true){
+                                String iname = txtnickname.text;
+                                setSHR(iname, true);
                                 Navigator.pushNamed(context, 'ubirth');
                               }
                             },
