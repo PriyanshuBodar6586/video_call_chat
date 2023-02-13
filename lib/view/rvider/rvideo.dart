@@ -5,7 +5,6 @@ import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:provider/provider.dart';
-import 'package:video_call_chat/model/video_model.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../provider/home_provider.dart';
@@ -96,7 +95,7 @@ class _RvideoState extends State<Rvideo> {
                     ElevatedButton(onPressed: (){
 
                           chat();
-                          Navigator.pushReplacementNamed(context, 'chat',arguments:  home_providerf!.i2[0].Name);
+                          Navigator.pushReplacementNamed(context, 'chat',arguments:  home_providerf!.Datapickkk!.Name);
 
                     },
                       child: Icon(Icons.sms),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
