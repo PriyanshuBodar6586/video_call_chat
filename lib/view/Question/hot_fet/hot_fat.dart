@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 import '../male_female/first.dart';
 
@@ -16,6 +18,15 @@ class Hot_Fat extends StatefulWidget {
 
 class _Hot_FatState extends State<Hot_Fat> {
   bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +46,18 @@ class _Hot_FatState extends State<Hot_Fat> {
                       child: Column(
 
                         children: [
+                          isAdLoaded?
+                          Container(
+                            height: 320,
+                            alignment: Alignment.center,
+                            child: AdWidget(ad: nativead!),
+                          ) :
+                          Container(
+                            height: 320,
+                            alignment: Alignment.center,
+                            child: Center(child: const CircularProgressIndicator()),
+                          ),
+
                           Container(
                             height: 8.h,
                             width: 85.w,
@@ -60,7 +83,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                             ),
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height: 4.h,
                           ),
 
                           InkWell(onTap:(){
@@ -215,7 +238,7 @@ class _Hot_FatState extends State<Hot_Fat> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 60,),
+                    SizedBox(height: 30,),
                   ],
                 ),
 
@@ -227,5 +250,30 @@ class _Hot_FatState extends State<Hot_Fat> {
         ],
       ),
     );
+  }
+
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

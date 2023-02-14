@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 import '../../../provider/home_provider.dart';
 
@@ -19,7 +21,17 @@ class _First_questionState extends State<First_question> {
 
   Home_Provider? home_providerT;
   Home_Provider? home_providerF;
-  bool isloading = false;
+  bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
+
   double? height;
   double? width;
 
@@ -39,11 +51,19 @@ class _First_questionState extends State<First_question> {
             width: double.infinity,
             fit: BoxFit.fill,
           ),
-          Column(
+          Column(mainAxisAlignment: MainAxisAlignment.end,
             children: [
 
-              SizedBox(
-                height: height! * 0.2,
+              isAdLoaded?
+              Container(
+                height: 320,
+                alignment: Alignment.center,
+                child: AdWidget(ad: nativead!),
+              ) :
+              Container(
+                height: 320,
+                alignment: Alignment.center,
+                child: Center(child: const CircularProgressIndicator()),
               ),
               Text(
                 "What Is Your Gender ?",
@@ -53,7 +73,7 @@ class _First_questionState extends State<First_question> {
                     fontSize: 25),
               ),
               SizedBox(
-                height: height! * 0.09,
+                height:4.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -193,21 +213,9 @@ class _First_questionState extends State<First_question> {
                 ],
               ),
               SizedBox(
-                height: height! * 0.07,
+                height: 10,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [],
-              // ),
-              // SizedBox(
-              //   height: height! * 0.02,
-              // ),
-              Text(
-                "Can't be changed after confirmation",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              )
+
             ],
           ),
           isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
@@ -215,5 +223,29 @@ class _First_questionState extends State<First_question> {
         ],
       ),
     );
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

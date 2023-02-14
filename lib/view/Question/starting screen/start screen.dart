@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 
 
@@ -14,8 +16,18 @@ class Start_screen extends StatefulWidget {
 
 class _Start_screenState extends State<Start_screen> {
   bool isloading=false;
+@override
+NativeAd? nativead;
+  bool isAdLoaded = false;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    bannerAds();
+    fornative();
+  }
   @override
   Widget build(BuildContext context) {
+
     return WillPopScope( onWillPop:dialog,
       child: Scaffold(
 
@@ -26,6 +38,17 @@ class _Start_screenState extends State<Start_screen> {
                 alignment: Alignment.bottomCenter,
                 children: [
                   Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+                  isAdLoaded?
+                  Container(
+                    height: 320,
+                    alignment: Alignment.center,
+                    child: AdWidget(ad: nativead!),
+                  ) :
+                  Container(
+                    height: 320,
+                    alignment: Alignment.center,
+                    child: Center(child: const CircularProgressIndicator()),
+                  ),
                   Column(mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
@@ -67,7 +90,8 @@ class _Start_screenState extends State<Start_screen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 60,),
+                      SizedBox(height: 90,
+                      child: AdWidget(ad: bannerAd!,),),
                     ],
                   ),
 
@@ -88,5 +112,29 @@ class _Start_screenState extends State<Start_screen> {
 
   void back(){
     Navigator.pushReplacementNamed(context, 'bottom');
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

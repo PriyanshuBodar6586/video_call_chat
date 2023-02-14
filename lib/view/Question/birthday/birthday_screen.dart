@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 import '../../../provider/home_provider.dart';
 
@@ -17,6 +19,16 @@ class User_Birthday extends StatefulWidget {
 
 class _User_BirthdayState extends State<User_Birthday> {
   bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
+
   double ? height;
   double ? width;
   Home_Provider? home_providerT;
@@ -35,8 +47,19 @@ class _User_BirthdayState extends State<User_Birthday> {
             Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(
               children: [
+                SizedBox(height: 5.h,),
 
-                SizedBox(height: height!*0.15,),
+                isAdLoaded?
+                Container(
+                  height: 320,
+                  alignment: Alignment.center,
+                  child: AdWidget(ad: nativead!),
+                ) :
+                Container(
+                  height: 320,
+                  alignment: Alignment.center,
+                  child: Center(child: const CircularProgressIndicator()),
+                ),
 
                 Text("My Birthday",style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.bold),),
                 SizedBox(height: height!*0.05,),
@@ -82,7 +105,7 @@ class _User_BirthdayState extends State<User_Birthday> {
                     ],
                   ),
                 ),
-                SizedBox(height: height!*0.3,),
+                SizedBox(height: 5.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -133,8 +156,11 @@ class _User_BirthdayState extends State<User_Birthday> {
                   ],
                 ),
                 SizedBox(height: height!*0.02,),
-                Text("Not allowed to use under 18",style: TextStyle(color: Colors.white,),)
+
+                Text("Not allowed to use under 18",style: TextStyle(color: Colors.white,),),
+                SizedBox(height: 10.h,child: AdWidget(ad: bannerAd!),),
               ],
+
             ),
             isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
 
@@ -166,5 +192,29 @@ class _User_BirthdayState extends State<User_Birthday> {
         firstDate: DateTime(0),
         lastDate: DateTime(3000));
     Provider.of<Home_Provider>(context, listen: false).getdata(data);
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

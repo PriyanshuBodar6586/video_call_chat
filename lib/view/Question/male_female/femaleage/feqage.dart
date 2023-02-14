@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../const/const.dart';
 import '../../../../model/ads_screen.dart';
 import '../../done/done.dart';
 
@@ -16,6 +18,15 @@ class Feqage extends StatefulWidget {
 
 class _FeqageState extends State<Feqage> {
   bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +44,17 @@ class _FeqageState extends State<Feqage> {
 
                       child:Column(
                         children: [
+                          isAdLoaded?
+                          Container(
+                            height: 320,
+                            alignment: Alignment.center,
+                            child: AdWidget(ad: nativead!),
+                          ) :
+                          Container(
+                            height: 320,
+                            alignment: Alignment.center,
+                            child: Center(child: const CircularProgressIndicator()),
+                          ),
                           Container(
                             height: 7.h,
                             width: 75.w,
@@ -54,7 +76,7 @@ class _FeqageState extends State<Feqage> {
                             ),
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height: 20,
                           ),
                           InkWell(onTap: (){
                             interVideoAds();
@@ -206,7 +228,7 @@ class _FeqageState extends State<Feqage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 60,),
+
                   ],
                 ),
 
@@ -217,5 +239,29 @@ class _FeqageState extends State<Feqage> {
         ],
       ),
     );
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

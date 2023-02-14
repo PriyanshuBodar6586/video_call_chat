@@ -24,7 +24,6 @@ class _Match_screenState extends State<Match_screen> {
   void initState() {
 
     super.initState();
-    bannerAds();
     fornative();
   }
 
@@ -125,7 +124,7 @@ class _Match_screenState extends State<Match_screen> {
                 ),
 
                 isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
-                SizedBox(height: 10.h,child: AdWidget(ad: bannerAd!),),
+
               ],
             ),
           ),

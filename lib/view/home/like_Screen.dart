@@ -30,7 +30,7 @@ class _Like_ScreenState extends State<Like_Screen> {
           Scaffold(
             body: InkWell(
               onTap: (){
-                interVideoAds();
+                rewardAds();
                 setState(() {
                   isloading = true;
                 });

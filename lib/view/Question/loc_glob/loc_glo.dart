@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 
 
@@ -16,6 +18,15 @@ class Lock_Global extends StatefulWidget {
 
 class _Lock_GlobalState extends State<Lock_Global> {
   bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +41,19 @@ class _Lock_GlobalState extends State<Lock_Global> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Lottie.asset("assets/video/45756-earth-globe-looped-icon.json"),
+                    SizedBox(height: 8.h,),
+                    isAdLoaded?
+                    Container(
+                      height: 320,
+                      alignment: Alignment.center,
+                      child: AdWidget(ad: nativead!),
+                    ) :
+                    Container(
+                      height: 320,
+                      alignment: Alignment.center,
+                      child: Center(child: const CircularProgressIndicator()),
+                    ),
+                    Lottie.asset("assets/video/45756-earth-globe-looped-icon.json",height: 23.h),
                     Align(
                       alignment: Alignment.bottomCenter,
 
@@ -122,7 +145,7 @@ class _Lock_GlobalState extends State<Lock_Global> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 60,),
+                    SizedBox(height: 40,),
                   ],
                 ),
 
@@ -133,5 +156,29 @@ class _Lock_GlobalState extends State<Lock_Global> {
         ],
       ),
     );
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }

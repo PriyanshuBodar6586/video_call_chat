@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../const/const.dart';
 import '../../../model/ads_screen.dart';
 import '../../../model/share_screen.dart';
 
@@ -16,6 +18,15 @@ class Nickname_Screen extends StatefulWidget {
 
 class _Nickname_ScreenState extends State<Nickname_Screen> {
   bool isloading=false;
+  NativeAd? nativead;
+  bool isAdLoaded = false;
+  @override
+  void initState() {
+
+    super.initState();
+    bannerAds();
+    fornative();
+  }
   TextEditingController txtnickname = TextEditingController();
   var txtkey = GlobalKey<FormState>();
   double ? height;
@@ -35,14 +46,23 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                 Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        IconButton(onPressed: (){
-                          Navigator.pushNamed(context,'ubirth');
-                        }, icon: Icon(Icons.arrow_back,size: 35,color: Colors.white,)),
-                      ],
+                    SizedBox(
+                      height: 6.h,
                     ),
-                    SizedBox(height: height!*0.1,),
+
+                      isAdLoaded?
+                      Container(
+                        height: 320,
+                        alignment: Alignment.center,
+                        child: AdWidget(ad: nativead!),
+                      ) :
+                      Container(
+                        height: 320,
+                        alignment: Alignment.center,
+                        child: Center(child: const CircularProgressIndicator()),
+                      ),
+
+
                     Text("My Nickname",style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.bold),),
                     SizedBox(height: height!*0.05,),
                     Padding(
@@ -118,7 +138,8 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: height!*0.05,),
+                    SizedBox(height: 80,
+                      child: AdWidget(ad: bannerAd!,),),
 
                   ],
                 ),
@@ -132,5 +153,29 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
         ),
       ),
     );
+  }
+  void fornative() {
+    try
+    {
+      nativead = NativeAd(
+        adUnitId: '$na',
+        factoryId: 'listTile',
+        request: const AdRequest(),
+        listener: NativeAdListener(
+            onAdLoaded: (_) {
+              setState(() {
+                isAdLoaded = true;
+              });
+            },
+            onAdFailedToLoad: (ad, error) {
+              fornative();
+
+            }),
+      );
+      nativead!.load();
+    }
+    on Exception
+    {}
+
   }
 }
