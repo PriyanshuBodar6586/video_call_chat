@@ -1,5 +1,6 @@
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_call_chat/view/home/like_Screen.dart';
@@ -26,7 +27,8 @@ import 'view/profile/profile.dart';
 import 'view/splash screen/splash_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); //Add this
+  WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();//Add this
   await FaceCamera.initialize();
   runApp(
     MultiProvider(
@@ -42,7 +44,7 @@ void main() async {
             debugShowCheckedModeBanner: false,
             //initialRoute: 'bottom',
 
-           //  initialRoute: 'bottom',
+             //     initialRoute: 'ubirth',
 
             routes: {
               '/': (contest) => splash_screen(),

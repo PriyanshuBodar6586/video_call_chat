@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../model/ads_screen.dart';
 import '../../../provider/home_provider.dart';
 
 class User_Birthday extends StatefulWidget {
@@ -12,6 +16,7 @@ class User_Birthday extends StatefulWidget {
 }
 
 class _User_BirthdayState extends State<User_Birthday> {
+  bool isloading=false;
   double ? height;
   double ? width;
   Home_Provider? home_providerT;
@@ -30,13 +35,7 @@ class _User_BirthdayState extends State<User_Birthday> {
             Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(
               children: [
-                Row(
-                  children: [
-                    IconButton(onPressed: (){
-                      Navigator.pushNamed(context,'loc-global');
-                    }, icon: Icon(Icons.arrow_back,size: 35,color: Colors.white,)),
-                  ],
-                ),
+
                 SizedBox(height: height!*0.15,),
 
                 Text("My Birthday",style: TextStyle(color: Colors.white,fontSize: 40,fontWeight: FontWeight.bold),),
@@ -44,7 +43,18 @@ class _User_BirthdayState extends State<User_Birthday> {
 
                 InkWell(
                   onTap: (){
-                    timeDialog();
+
+                    interVideoAds();
+                    setState(() {
+                      isloading = true;
+                    });
+                    Timer(Duration(seconds: 7), () {
+                      setState(() {
+                        isloading = false ;
+                      });
+                      timeDialog();
+
+                    });
                   },
                   child: Stack(
                     alignment: Alignment.center,
@@ -81,7 +91,20 @@ class _User_BirthdayState extends State<User_Birthday> {
                       children: [
                         InkWell(
                           onTap: (){
-                            Navigator.pushNamed(context,'loc-global');
+                            interVideoAds();
+                            setState(() {
+                              isloading = true;
+                            });
+                            Timer(Duration(seconds: 7), () {
+                              setState(() {
+                                isloading = false ;
+                              });
+                              Navigator.pushNamed(context,'loc-global');
+
+                            });
+
+
+
                           },
                           child:Container(
                             height: 7.h,
@@ -113,6 +136,8 @@ class _User_BirthdayState extends State<User_Birthday> {
                 Text("Not allowed to use under 18",style: TextStyle(color: Colors.white,),)
               ],
             ),
+            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+
           ],
         ),
       ),

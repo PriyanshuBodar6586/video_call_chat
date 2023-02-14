@@ -27,7 +27,7 @@ class _Lottie_ScreenState extends State<Lottie_Screen> {
   @override
   Widget build(BuildContext context) {
   Future.delayed(Duration(seconds: 05), () {
-    // return Navigator.pushNamed(context, "rvideo",arguments: Provider.of<Home_Provider>(context,listen: false).i2[randomNumber!].video);
+    
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
       return Rvideo(Provider.of<Home_Provider>(context,listen: false).i2[randomNumber!].video!);
     },));

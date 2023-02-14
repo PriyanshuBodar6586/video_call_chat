@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_call_chat/view/home/like_Screen.dart';
 
+import '../../model/ads_screen.dart';
 import '../../provider/home_provider.dart';
 import '../Question/done/done.dart';
 import '../chatscreen/chat_screen.dart';
@@ -34,6 +35,11 @@ class _BottombarState extends State<Bottombar> {
       bottomNavigationBar: GNav(
         backgroundColor:  Color(0xFFFFFFFF),
           onTabChange: (value){
+            interAds();
+
+
+
+
             Provider.of<Home_Provider>(context,listen:false).changeicon(value);
           },
           selectedIndex: Provider.of<Home_Provider>(context,listen:true).i ,

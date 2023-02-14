@@ -8,9 +8,14 @@ class intro1 extends StatefulWidget {
 
   @override
   State<intro1> createState() => _intro1State();
-}
 
+}
 class _intro1State extends State<intro1> {
+  @override
+  void initState() {
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
