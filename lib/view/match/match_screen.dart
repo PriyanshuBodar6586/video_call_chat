@@ -55,12 +55,12 @@ class _Match_screenState extends State<Match_screen> {
                 ),
                 isAdLoaded?
                 Container(
-                  height: 40.h,
+                  height: 320,
                   alignment: Alignment.center,
                   child: AdWidget(ad: nativead!),
                 ) :
                 Container(
-                  height: 40.h,
+                  height: 320,
                   alignment: Alignment.center,
                   child: Center(child: const CircularProgressIndicator()),
                 ),
