@@ -41,7 +41,7 @@ class _splash_screenState extends State<splash_screen> {
       );}
     else{
       Timer(Duration(seconds: 7),
-              ()=>Navigator.pushReplacementNamed(context, 'intro01')
+              ()=>Navigator.pushReplacementNamed(context, '/start')
       );
     }
   }
