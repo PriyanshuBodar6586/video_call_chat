@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_call_chat/view/home/like_Screen.dart';
 import 'package:video_call_chat/view/intro/intro_screen.dart';
+import 'package:video_call_chat/view/privacy_policy/privacy_policy.dart';
 import 'provider/home_provider.dart';
 import 'view/Question/birthday/birthday_screen.dart';
 import 'view/Question/done/done.dart';
@@ -48,6 +49,7 @@ void main() async {
 
             routes: {
               '/': (contest) => splash_screen(),
+              'Privacy': (contest) => Privacy_Policy(),
               '/start': (contest) => Start_screen(),
               'intro01': (contest) => intro1(),
               // 'd':(conest)=>Call_screen(),
