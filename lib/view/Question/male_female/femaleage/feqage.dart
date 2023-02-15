@@ -30,7 +30,7 @@ class _FeqageState extends State<Feqage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(alignment: Alignment.bottomCenter,
+      body: Stack(
         children: [
           Container(
             child: Stack(
@@ -46,12 +46,12 @@ class _FeqageState extends State<Feqage> {
                         children: [
                           isAdLoaded?
                           Container(
-                            height: 30.h,
+                            height: 320,
                             alignment: Alignment.center,
                             child: AdWidget(ad: nativead!),
                           ) :
                           Container(
-                            height: 30.h,
+                            height: 320,
                             alignment: Alignment.center,
                             child: Center(child: const CircularProgressIndicator()),
                           ),
@@ -222,7 +222,7 @@ class _FeqageState extends State<Feqage> {
                             ),
                           ),
                           SizedBox(
-                            height: 15.h,
+                            height: 10,
                           ),
 
                         ],
@@ -235,9 +235,7 @@ class _FeqageState extends State<Feqage> {
               ],
             ),
           ),
-          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
-          SizedBox(height: 100,
-            child: AdWidget(ad: bannerAd!,),),
+          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
         ],
       ),
     );

@@ -42,7 +42,7 @@ class _User_BirthdayState extends State<User_Birthday> {
     home_providerT = Provider.of<Home_Provider>(context,listen: true);
     return SafeArea(
       child: Scaffold(resizeToAvoidBottomInset: false,
-        body: Stack(alignment: Alignment.bottomCenter,
+        body: Stack(
           children: [
             Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(
@@ -51,13 +51,12 @@ class _User_BirthdayState extends State<User_Birthday> {
 
                 isAdLoaded?
                 Container(
-                  height: 30.h,
-
+                  height: 320,
                   alignment: Alignment.center,
                   child: AdWidget(ad: nativead!),
                 ) :
                 Container(
-                  height: 30.h,
+                  height: 320,
                   alignment: Alignment.center,
                   child: Center(child: const CircularProgressIndicator()),
                 ),
@@ -68,7 +67,17 @@ class _User_BirthdayState extends State<User_Birthday> {
                 InkWell(
                   onTap: (){
 
-                    timeDialog();
+                    interVideoAds();
+                    setState(() {
+                      isloading = true;
+                    });
+                    Timer(Duration(seconds: 7), () {
+                      setState(() {
+                        isloading = false ;
+                      });
+                      timeDialog();
+
+                    });
                   },
                   child: Stack(
                     alignment: Alignment.center,
@@ -149,16 +158,13 @@ class _User_BirthdayState extends State<User_Birthday> {
                 SizedBox(height: height!*0.02,),
 
                 Text("Not allowed to use under 18",style: TextStyle(color: Colors.white,),),
-
-
+                SizedBox(height: 10.h,child: AdWidget(ad: bannerAd!),),
               ],
 
             ),
-            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
-            SizedBox(height: 100,
-              child: AdWidget(ad: bannerAd!,),),
-          ],
+            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
 
+          ],
         ),
       ),
     );

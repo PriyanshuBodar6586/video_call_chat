@@ -39,7 +39,7 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
     return Form(
       key: txtkey,
       child: Scaffold(resizeToAvoidBottomInset: false,
-        body: Stack(alignment: Alignment.bottomCenter,
+        body: Stack(
           children: [
             Stack(
               children: [
@@ -52,12 +52,12 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
 
                       isAdLoaded?
                       Container(
-                        height: 45.h,
+                        height: 320,
                         alignment: Alignment.center,
                         child: AdWidget(ad: nativead!),
                       ) :
                       Container(
-                        height: 45.h,
+                        height: 320,
                         alignment: Alignment.center,
                         child: Center(child: const CircularProgressIndicator()),
                       ),
@@ -95,22 +95,21 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                           children: [
                             InkWell(
                               onTap: (){
-
-                                if(txtkey.currentState!.validate() == true){
-                                  interVideoAds();
+                                interVideoAds();
+                                setState(() {
+                                  isloading = true;
+                                });
+                                Timer(Duration(seconds: 7), () {
                                   setState(() {
-                                    isloading = true;
+                                    isloading = false ;
                                   });
-                                  Timer(Duration(seconds: 7), () {
-                                    setState(() {
-                                      isloading = false ;
-                                    });
+                                  if(txtkey.currentState!.validate() == true){
                                     String iname = txtnickname.text;
                                     setSHR(iname, true);
                                     Navigator.pushNamed(context, 'ubirth');
-                                  });
+                                  }
+                                });
 
-                                }
 
 
                               },
@@ -135,12 +134,12 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                                 ),
                               ),
                             ),
-
                           ],
                         ),
                       ],
                     ),
-
+                    SizedBox(height: 80,
+                      child: AdWidget(ad: bannerAd!,),),
 
                   ],
                 ),
@@ -148,9 +147,8 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
 
 
             ),
-            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
-            SizedBox(height: 80,
-              child: AdWidget(ad: bannerAd!,),),
+            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+
           ],
         ),
       ),

@@ -31,7 +31,7 @@ class _Hot_FatState extends State<Hot_Fat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(alignment: Alignment.bottomCenter,
+      body: Stack(
         children: [
           Container(
             child: Stack(
@@ -48,12 +48,12 @@ class _Hot_FatState extends State<Hot_Fat> {
                         children: [
                           isAdLoaded?
                           Container(
-                            height: 30.h,
+                            height: 320,
                             alignment: Alignment.center,
                             child: AdWidget(ad: nativead!),
                           ) :
                           Container(
-                            height: 30.h,
+                            height: 320,
                             alignment: Alignment.center,
                             child: Center(child: const CircularProgressIndicator()),
                           ),
@@ -238,16 +238,15 @@ class _Hot_FatState extends State<Hot_Fat> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 17.h,),
+                    SizedBox(height: 30,),
                   ],
                 ),
 
               ],
             ),
           ),
-          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
-          SizedBox(height: 100,
-            child: AdWidget(ad: bannerAd!,),),
+          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+
         ],
       ),
     );
