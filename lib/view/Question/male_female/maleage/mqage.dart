@@ -29,7 +29,7 @@ class _MaqageState extends State<Maqage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Stack(alignment: Alignment.bottomCenter,
         children: [
           Container(
             child: Stack(
@@ -40,12 +40,12 @@ class _MaqageState extends State<Maqage> {
                   children: [
                     isAdLoaded?
                     Container(
-                      height: 320,
+                      height: 30.h,
                       alignment: Alignment.center,
                       child: AdWidget(ad: nativead!),
                     ) :
                     Container(
-                      height: 320,
+                      height: 30.h,
                       alignment: Alignment.center,
                       child: Center(child: const CircularProgressIndicator()),
                     ),
@@ -229,7 +229,7 @@ class _MaqageState extends State<Maqage> {
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 15.h,
                           ),
 
                         ],
@@ -242,7 +242,9 @@ class _MaqageState extends State<Maqage> {
               ],
             ),
           ),
-          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
+          SizedBox(height: 100,
+            child: AdWidget(ad: bannerAd!,),),
         ],
       ),
     );

@@ -85,7 +85,7 @@ class Home_Provider extends ChangeNotifier{
     Modeldata(video:"assets/video/vg/v32.mp4",Image: "assets/image/ig/i32.jpg",Name:"Bhavna",),
     Modeldata(video:"assets/video/vg/v33.mp4",Image: "assets/image/ig/i33.jpg",Name:"Amaira",),
     Modeldata(video:"assets/video/vg/v34.mp4",Image: "assets/image/ig/i34.jpg",Name:"Dhriti",),
-    Modeldata(video:"assets/video/vg/v35.mp4",Image: "assets/image/ig/i34.jpg",Name:"Diya",),
+    Modeldata(video:"assets/video/vg/v35.mp4",Image: "assets/image/ig/i35.jpg",Name:"Diya",),
     Modeldata(video:"assets/video/vg/v36.mp4",Image: "assets/image/ig/i36.jpg",Name:"Damini",),
     Modeldata(video:"assets/video/vg/v37.mp4",Image: "assets/image/ig/i37.jpg",Name:"Ekta",),
     Modeldata(video:"assets/video/vg/v38.mp4",Image: "assets/image/ig/i38.jpg",Name:"Gayathri",),
@@ -98,9 +98,11 @@ class Home_Provider extends ChangeNotifier{
     Modeldata(video:"assets/video/vg/v45.mp4",Image: "assets/image/ig/i45.jpg",Name:"Avery",),
     Modeldata(video:"assets/video/vg/v46.mp4",Image: "assets/image/ig/i46.jpg",Name:"Hazel",),
     Modeldata(video:"assets/video/vg/v47.mp4",Image: "assets/image/ig/i47.jpg",Name:"Eva",),
-    Modeldata(video:"assets/video/vg/v48.mp4",Image: "assets/image/ig/i148.jpg",Name:"Clara",),
+    Modeldata(video:"assets/video/vg/v48.mp4",Image: "assets/image/ig/i48.jpg",Name:"Clara",),
     Modeldata(video:"assets/video/vg/v49.mp4",Image: "assets/image/ig/i49.jpg",Name:"Lyla",),
     Modeldata(video:"assets/video/vg/v50.mp4",Image: "assets/image/ig/i50.jpg",Name:"Ayla",),
+    Modeldata(video:"assets/video/vg/v19.mp4",Image: "assets/image/ig/i19.jpg",Name:"Alexis",),
+
 
   ];
 
@@ -144,7 +146,7 @@ class Home_Provider extends ChangeNotifier{
     Modeldata(video:"assets/video/vg/v32.mp4",Image: "assets/image/ig/i32.jpg",Name:"Bhavna",),
     Modeldata(video:"assets/video/vg/v33.mp4",Image: "assets/image/ig/i33.jpg",Name:"Amaira",),
     Modeldata(video:"assets/video/vg/v34.mp4",Image: "assets/image/ig/i34.jpg",Name:"Dhriti",),
-    Modeldata(video:"assets/video/vg/v35.mp4",Image: "assets/image/ig/i34.jpg",Name:"Diya",),
+    Modeldata(video:"assets/video/vg/v35.mp4",Image: "assets/image/ig/i35.jpg",Name:"Diya",),
     Modeldata(video:"assets/video/vg/v36.mp4",Image: "assets/image/ig/i36.jpg",Name:"Damini",),
     Modeldata(video:"assets/video/vg/v37.mp4",Image: "assets/image/ig/i37.jpg",Name:"Ekta",),
     Modeldata(video:"assets/video/vg/v38.mp4",Image: "assets/image/ig/i38.jpg",Name:"Gayathri",),
@@ -157,7 +159,7 @@ class Home_Provider extends ChangeNotifier{
     Modeldata(video:"assets/video/vg/v45.mp4",Image: "assets/image/ig/i45.jpg",Name:"Avery",),
     Modeldata(video:"assets/video/vg/v46.mp4",Image: "assets/image/ig/i46.jpg",Name:"Hazel",),
     Modeldata(video:"assets/video/vg/v47.mp4",Image: "assets/image/ig/i47.jpg",Name:"Eva",),
-    Modeldata(video:"assets/video/vg/v48.mp4",Image: "assets/image/ig/i148.jpg",Name:"Clara",),
+    Modeldata(video:"assets/video/vg/v48.mp4",Image: "assets/image/ig/i48.jpg",Name:"Clara",),
     Modeldata(video:"assets/video/vg/v49.mp4",Image: "assets/image/ig/i49.jpg",Name:"Lyla",),
     Modeldata(video:"assets/video/vg/v50.mp4",Image: "assets/image/ig/i50.jpg",Name:"Ayla",),
     Modeldata(video:"assets/video/vg/v3.mp4",Image: "assets/image/ig/i3.jpg",Name:" reema",),

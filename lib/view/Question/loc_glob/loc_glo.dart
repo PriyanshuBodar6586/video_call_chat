@@ -31,7 +31,7 @@ class _Lock_GlobalState extends State<Lock_Global> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Stack(
+      body: Stack(alignment: Alignment.bottomCenter,
         children: [
           Container(
             child: Stack(
@@ -44,16 +44,16 @@ class _Lock_GlobalState extends State<Lock_Global> {
                     SizedBox(height: 8.h,),
                     isAdLoaded?
                     Container(
-                      height: 320,
+                      height: 30.h,
                       alignment: Alignment.center,
                       child: AdWidget(ad: nativead!),
                     ) :
                     Container(
-                      height: 320,
+                      height: 30.h,
                       alignment: Alignment.center,
                       child: Center(child: const CircularProgressIndicator()),
                     ),
-                    Lottie.asset("assets/video/45756-earth-globe-looped-icon.json",height: 23.h),
+                    Lottie.asset("assets/video/45756-earth-globe-looped-icon.json",height: 30.h),
                     Align(
                       alignment: Alignment.bottomCenter,
 
@@ -145,14 +145,16 @@ class _Lock_GlobalState extends State<Lock_Global> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 40,),
+                    SizedBox(height: 15.h,),
                   ],
                 ),
 
               ],
             ),
           ),
-          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+          isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
+          SizedBox(height: 100,
+            child: AdWidget(ad: bannerAd!,),),
         ],
       ),
     );

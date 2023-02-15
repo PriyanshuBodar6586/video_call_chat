@@ -16,39 +16,22 @@ class Start_screen extends StatefulWidget {
 
 class _Start_screenState extends State<Start_screen> {
   bool isloading=false;
-@override
-NativeAd? nativead;
-  bool isAdLoaded = false;
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    bannerAds();
-    fornative();
-  }
+
+
   @override
   Widget build(BuildContext context) {
 
     return WillPopScope( onWillPop:dialog,
       child: Scaffold(
 
-        body: Stack(
+        body: Stack(alignment: Alignment.bottomCenter,
           children: [
             Container(
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
                   Image.asset("assets/image/bacl0012.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
-                  isAdLoaded?
-                  Container(
-                    height: 320,
-                    alignment: Alignment.center,
-                    child: AdWidget(ad: nativead!),
-                  ) :
-                  Container(
-                    height: 320,
-                    alignment: Alignment.center,
-                    child: Center(child: const CircularProgressIndicator()),
-                  ),
+
                   Column(mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Align(
@@ -89,17 +72,19 @@ NativeAd? nativead;
                             ),
                           ),
                         ),
+
                       ),
-                      SizedBox(height: 90,
-                      child: AdWidget(ad: bannerAd!,),),
+                      SizedBox(height: 20.h,),
                     ],
                   ),
 
                 ],
               ),
             ),
-            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container()
+            isloading?Center(child: Lottie.asset("assets/video/136926-loading-123.json"),):Container(),
+
           ],
+
         ),
       ),
     );
@@ -113,28 +98,5 @@ NativeAd? nativead;
   void back(){
     Navigator.pushReplacementNamed(context, 'bottom');
   }
-  void fornative() {
-    try
-    {
-      nativead = NativeAd(
-        adUnitId: '$na',
-        factoryId: 'listTile',
-        request: const AdRequest(),
-        listener: NativeAdListener(
-            onAdLoaded: (_) {
-              setState(() {
-                isAdLoaded = true;
-              });
-            },
-            onAdFailedToLoad: (ad, error) {
-              fornative();
 
-            }),
-      );
-      nativead!.load();
-    }
-    on Exception
-    {}
-
-  }
 }
