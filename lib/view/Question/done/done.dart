@@ -51,12 +51,12 @@ class _DoneState extends State<Done> {
                     children: [
                       isAdLoaded?
                       Container(
-                        height: 320,
+                        height: 40.h,
                         alignment: Alignment.center,
                         child: AdWidget(ad: nativead!),
                       ) :
                       Container(
-                        height: 320,
+                        height: 40.h,
                         alignment: Alignment.center,
                         child: Center(child: const CircularProgressIndicator()),
                       ),
@@ -74,11 +74,11 @@ class _DoneState extends State<Done> {
                             ],
                           ),
                           child: Center(
-                            child: Text("WelCome To vide Call App",
+                            child: Text("WelCome To video Call App",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
-                                  fontSize: 25,
+                                  fontSize: 16.sp,
                                 )),
                           ),
                         ),
@@ -116,7 +116,7 @@ class _DoneState extends State<Done> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF4E08DC),
-                                  fontSize: 25,
+                                  fontSize: 20.sp,
                                 )),
                           ),
                         ),

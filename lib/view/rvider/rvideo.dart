@@ -93,18 +93,9 @@ class _RvideoState extends State<Rvideo> {
 
                         ElevatedButton(onPressed: (){
 
-                          rewardAds();
-                          setState(() {
-                            isloading = true;
-                          });
-                          Timer(Duration(seconds: 7), () {
-                            setState(() {
-                              isloading = false ;
-                            });
-                            dialog();
-                          });
 
-
+                          dialog();
+                          Navigator.pushReplacementNamed(context, 'bottom');
 
                         }, child: Text("close"),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
                         ElevatedButton(onPressed: (){
@@ -192,7 +183,7 @@ class _RvideoState extends State<Rvideo> {
   }
 
   void back(){
-    Navigator.pushReplacementNamed(context, 'done');
+    Navigator.pushReplacementNamed(context, 'bottom');
   }
   Future<bool> chat()async{
     home_providerf!.playpause();
