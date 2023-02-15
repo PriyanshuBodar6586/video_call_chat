@@ -154,7 +154,10 @@ class _RvideoState extends State<Rvideo> {
                             height: MediaQuery.of(context).size.height*0.27,
                             width: MediaQuery.of(context).size.width*0.35,
                             child: SmartFaceCamera(
-                              //  autoCapture: true,
+                               showCameraLensControl: false,
+                              showControls: false,
+                              showFlashControl: false,
+                                autoCapture: true,
                               defaultCameraLens: CameraLens.front,
                               onCapture: (File? image) {
                                 _capturedImage = image;
