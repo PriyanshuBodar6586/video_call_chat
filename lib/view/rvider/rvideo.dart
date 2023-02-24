@@ -6,6 +6,7 @@ import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../model/ads_screen.dart';
@@ -88,6 +89,27 @@ class _RvideoState extends State<Rvideo> {
                         ),
                       ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        ElevatedButton(onPressed: () {
+                          reportdilopg();
+                        }, child: Text("Report")),
+                        SizedBox(
+                          width: 40,
+                        ),
+                        ElevatedButton(onPressed: () {
+                          Navigator.pushNamed(context,'lotti');
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("User has been Block successfully"),));
+                        }, child: Text("Block")),
+                        SizedBox(
+                          width: 5,
+                        ),
+                      ],
+                    ),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
 
@@ -120,25 +142,9 @@ class _RvideoState extends State<Rvideo> {
 
 
 
-                        ElevatedButton(onPressed: (){
 
 
-                              rewardAds();
-                              setState(() {
-                                isloading = true;
-                              });
-                              Timer(Duration(seconds: 7), () {
-                                setState(() {
-                                  isloading = false ;
-                                });
-                                dialog();
-                                chat();
-                                Navigator.pushReplacementNamed(context, 'chat',arguments:  home_providerf!.Datapickkk!.Name);
-                              });
 
-
-                        },
-                          child: Icon(Icons.sms),style: ElevatedButton.styleFrom(primary: Colors.purpleAccent),),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Container(
@@ -184,7 +190,97 @@ class _RvideoState extends State<Rvideo> {
     super.dispose();
   dialog();
   }
+  void reportdilopg(){
+    showModalBottomSheet(context: context,
+        builder: (context){
+          return Container(
+            height: 70.h,
+            width: 100.h,
+            decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(20)),color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Container(height: 1.h,width: 15.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.grey),),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  Text("Report",style: TextStyle(fontSize: 20.sp),),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  InkWell(
+                    onTap: (){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                      Navigator.pushNamed(context,'bottom');
+                    },
+                    child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("it's spam",style: TextStyle(fontSize: 15.sp),),
 
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(onTap: (){
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                    Navigator.pushNamed(context,'bottom');
+                  },
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("i just don't like it",style: TextStyle(fontSize: 15.sp),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: (){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                      Navigator.pushNamed(context,'bottom');
+                    },
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Nudity or sexual activity",style: TextStyle(fontSize: 15.sp),),
+
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 2.h,
+                  ),
+                  InkWell(
+                    onTap: (){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                      Navigator.pushNamed(context,'bottom');
+                    },
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Hate speech or symbols",style: TextStyle(fontSize: 15.sp),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  ),
+
+//
+
+                ],
+              ),
+            ),
+          );
+        });
+  }
   void back(){
     Navigator.pushReplacementNamed(context, 'bottom');
   }

@@ -106,7 +106,7 @@ class _Nickname_ScreenState extends State<Nickname_Screen> {
                                       isloading = false ;
                                     });
                                     String iname = txtnickname.text;
-                                    setSHR(iname, true);
+                                    setSHR(iname);
                                     Navigator.pushNamed(context, 'ubirth');
                                   });
 

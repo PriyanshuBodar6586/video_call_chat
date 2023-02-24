@@ -27,7 +27,7 @@ class _DoneState extends State<Done> {
     super.initState();
     bannerAds();
     fornative();
-    setIntro();
+    // setIntro();
   }
 
   @override

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../provider/home_provider.dart';
@@ -96,31 +97,139 @@ class _Second_ScreenState extends State<Second_Screen> {
                       ),
                     ),
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(onPressed: () {
+                        reportdilopg();
+                      }, child: Text("Report")),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      ElevatedButton(onPressed: () {
+                        Navigator.pushNamed(context,'bottom');
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("User has been Block successfully"),));
+                      }, child: Text("Block")),
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
+                  ),
                 ],
               );
             }),
             floatingActionButton: Padding(
-              padding: const EdgeInsets.only(bottom: 5),
+              padding: const EdgeInsets.only(bottom: 5, left: 50),
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      dialog();
-                    },
-                    child: Icon(
-                      Icons.call,
-                      size: 40,
-                    ),
-                    backgroundColor: Colors.red,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    dialog();
+                  },
+                  child: Icon(
+                    Icons.call,
+                    size: 40,
                   ),
+                  backgroundColor: Colors.red,
                 ),
               ),
             )),
       ),
     );
+  }
+  void reportdilopg(){
+    showModalBottomSheet(context: context,
+        builder: (context){
+      return Container(
+        height: 70.h,
+        width: 100.h,
+        decoration: BoxDecoration(borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(20)),color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+            SizedBox(
+              height: 2.h,
+            ),
+               Container(height: 1.h,width: 15.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.grey),),
+              SizedBox(
+                height: 2.h,
+              ),
+              Text("Report",style: TextStyle(fontSize: 20.sp),),
+              SizedBox(
+                height: 1.h,
+              ),
+              InkWell(
+                onTap: (){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                  Navigator.pushNamed(context,'play');
+                },
+                child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("it's spam",style: TextStyle(fontSize: 15.sp),),
+
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              InkWell(onTap: (){
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                Navigator.pushNamed(context,'play');
+              },
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("i just don't like it",style: TextStyle(fontSize: 15.sp),),
+
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 2.h,
+              ),
+              InkWell(
+                onTap: (){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                  Navigator.pushNamed(context,'play');
+                },
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Nudity or sexual activity",style: TextStyle(fontSize: 15.sp),),
+
+                  ],
+                ),
+              ),
+
+              SizedBox(
+                height: 2.h,
+              ),
+              InkWell(
+                onTap: (){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Report has been sent successfully"),));
+                  Navigator.pushNamed(context,'play');
+                },
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Hate speech or symbols",style: TextStyle(fontSize: 15.sp),),
+
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 3.h,
+              ),
+
+//
+
+            ],
+          ),
+        ),
+      );
+        });
   }
 
   Future<bool> dialog() async {

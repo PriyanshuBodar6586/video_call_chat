@@ -5,14 +5,11 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_call_chat/view/home/like_Screen.dart';
 
-import '../../model/ads_screen.dart';
 import '../../provider/home_provider.dart';
 import '../Question/done/done.dart';
-import '../chatscreen/chat_screen.dart';
 import '../home/video_screen.dart';
 import '../match/match_screen.dart';
 import '../profile/profile.dart';
-import '../rvider/rvideo.dart';
 
 class Bottombar extends StatefulWidget {
   const Bottombar({Key? key}) : super(key: key);
@@ -23,7 +20,7 @@ class Bottombar extends StatefulWidget {
 
 class _BottombarState extends State<Bottombar> {
 
-  List WidgetsList=[Match_screen(),Video_Screen(),Like_Screen(),Chat_Screen(),uprofile(),];
+  List WidgetsList=[Match_screen(),Video_Screen(),Like_Screen(),uprofile(),];
 
   Home_Provider ? home_providert;
   Home_Provider ? home_providerf;
@@ -39,7 +36,7 @@ class _BottombarState extends State<Bottombar> {
         bottomNavigationBar: GNav(
           backgroundColor:  Color(0xFFFFFFFF),
             onTabChange: (value){
-              interAds();
+              // interAds();
 
 
 
@@ -75,10 +72,7 @@ class _BottombarState extends State<Bottombar> {
                 icon:Icons.favorite,
                 text: 'Favorite',
               ),
-              GButton(
-                icon: Icons.mark_unread_chat_alt_sharp,
-                text: 'Messeges',
-              ),
+
               GButton(
                 icon: Icons.person,
                 text: 'Profile',

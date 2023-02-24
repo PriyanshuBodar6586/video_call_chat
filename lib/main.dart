@@ -1,5 +1,6 @@
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -17,7 +18,6 @@ import 'view/Question/male_female/maleage/mqage.dart';
 import 'view/Question/nic_name/nick_name.dart';
 import 'view/Question/starting screen/start screen.dart';
 import 'view/bottembar/bottem_bar.dart';
-import 'view/chatscreen/chat_screen.dart';
 import 'view/home/home_screen.dart';
 import 'view/home/video_play_screen.dart';
 import 'view/home/video_screen.dart';
@@ -31,7 +31,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();//Add this
   await FaceCamera.initialize();
-  runApp(
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(
     MultiProvider(
       providers: [
         ListenableProvider(create: (contest) => Home_Provider()),
@@ -43,9 +46,7 @@ void main() async {
               accentColor: Colors.black,
             ),
             debugShowCheckedModeBanner: false,
-            //initialRoute: 'bottom',
 
-             //     initialRoute: 'ubirth',
 
             routes: {
               '/': (contest) => splash_screen(),
@@ -57,7 +58,7 @@ void main() async {
               'intro03': (contest) => Intro3(),
               'home': (contest) => Home_Screen(),
               'hotfat': (contest) => Hot_Fat(),
-              // 'rvideo':(contest)=>Rvideo(),
+
               'feage': (contest) => Feqage(),
               'mage': (contest) => Maqage(),
               'bottom': (contest) => Bottombar(),
@@ -70,12 +71,13 @@ void main() async {
               'userpro': (contest) => uprofile(),
               'nick': (contest) => Nickname_Screen(),
               'ubirth': (contest) => User_Birthday(),
-              'chat': (contest) => Chat_Screen(),
+
               'like': (contest) => Like_Screen(),
             },
           );
         },
       ),
     ),
-  );
+  ));
+
 }
